@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5001/api', // Backend URL
-    headers: {
-        'Content-Type': 'application/json',
-    },
+  baseURL: "http://localhost:5001/api", // Backend URL
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 // Add a request interceptor to inject the token
