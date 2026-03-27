@@ -48,84 +48,93 @@ const AdminLayout: React.FC = () => {
     };
 
     const SidebarContent = () => (
-        <>
-            {/* Logo */}
-            <div className={clsx(
-                "p-5 border-b border-gray-100 flex items-center gap-3",
-                collapsed && "justify-center px-3"
-            )}>
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-md shadow-indigo-200">
-                    <Milk className="w-5 h-5 text-white" />
-                </div>
-                {!collapsed && (
-                    <div className="animate-fade-in">
-                        <h1 className="text-sm font-bold text-gray-900">Milk Distributor</h1>
-                        <p className="text-[10px] text-gray-400 leading-tight">Management System</p>
-                    </div>
-                )}
+      <>
+        {/* Logo */}
+        <div
+          className={clsx(
+            "p-5 border-b border-gray-100 flex items-center gap-3",
+            collapsed && "justify-center px-3",
+          )}>
+          <div className='w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-md shadow-indigo-200'>
+            <Milk className='w-5 h-5 text-white' />
+          </div>
+          {!collapsed && (
+            <div className='animate-fade-in'>
+              <h1 className='text-sm font-bold text-gray-900'>
+                Kodai Diary Distributor
+              </h1>
+              <p className='text-[10px] text-gray-400 leading-tight'>
+                Management System
+              </p>
             </div>
+          )}
+        </div>
 
-            {/* Navigation */}
-            <nav className="flex-1 overflow-y-auto py-4 px-3">
-                <div className={clsx("space-y-1", !collapsed && "stagger-children")}>
-                    {navItems.map((item) => {
-                        const Icon = item.icon;
-                        const active = isActive(item.path);
-                        return (
-                            <Link
-                                key={item.name}
-                                to={item.path}
-                                onClick={() => setMobileOpen(false)}
-                                className={clsx(
-                                    'flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-200',
-                                    collapsed && 'justify-center',
-                                    active
-                                        ? 'bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 shadow-sm'
-                                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                                )}
-                                title={collapsed ? item.name : undefined}
-                            >
-                                <Icon className={clsx(
-                                    'w-5 h-5 flex-shrink-0 transition-colors',
-                                    active && 'text-indigo-600'
-                                )} />
-                                {!collapsed && <span>{item.name}</span>}
-                                {active && !collapsed && (
-                                    <div className="ml-auto w-1.5 h-1.5 rounded-full bg-indigo-600" />
-                                )}
-                            </Link>
-                        );
-                    })}
-                </div>
-            </nav>
-
-            {/* User section */}
-            <div className="p-3 border-t border-gray-100">
-                {!collapsed && (
-                    <div className="flex items-center gap-3 mb-3 px-2">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-indigo-700 font-bold text-sm flex-shrink-0">
-                            {user?.name.charAt(0).toUpperCase()}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <p className="text-sm font-semibold text-gray-900 truncate">{user?.name}</p>
-                            <p className="text-[11px] text-gray-400 truncate">{user?.role === 'admin' ? 'Administrator' : 'Driver'}</p>
-                        </div>
-                    </div>
-                )}
-                <button
-                    onClick={handleLogout}
+        {/* Navigation */}
+        <nav className='flex-1 overflow-y-auto py-4 px-3'>
+          <div className={clsx("space-y-1", !collapsed && "stagger-children")}>
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const active = isActive(item.path);
+              return (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setMobileOpen(false)}
+                  className={clsx(
+                    "flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-200",
+                    collapsed && "justify-center",
+                    active
+                      ? "bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 shadow-sm"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                  )}
+                  title={collapsed ? item.name : undefined}>
+                  <Icon
                     className={clsx(
-                        "flex items-center gap-2 text-sm text-red-500 hover:bg-red-50 rounded-xl transition-all duration-200",
-                        collapsed ? "mx-auto p-2.5" : "w-full px-3 py-2.5",
-                        collapsed && "justify-center"
+                      "w-5 h-5 flex-shrink-0 transition-colors",
+                      active && "text-indigo-600",
                     )}
-                    title="Logout"
-                >
-                    <LogOut className="w-4 h-4" />
-                    {!collapsed && <span>Logout</span>}
-                </button>
+                  />
+                  {!collapsed && <span>{item.name}</span>}
+                  {active && !collapsed && (
+                    <div className='ml-auto w-1.5 h-1.5 rounded-full bg-indigo-600' />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+
+        {/* User section */}
+        <div className='p-3 border-t border-gray-100'>
+          {!collapsed && (
+            <div className='flex items-center gap-3 mb-3 px-2'>
+              <div className='w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-indigo-700 font-bold text-sm flex-shrink-0'>
+                {user?.name.charAt(0).toUpperCase()}
+              </div>
+              <div className='flex-1 min-w-0'>
+                <p className='text-sm font-semibold text-gray-900 truncate'>
+                  {user?.name}
+                </p>
+                <p className='text-[11px] text-gray-400 truncate'>
+                  {user?.role === "admin" ? "Administrator" : "Driver"}
+                </p>
+              </div>
             </div>
-        </>
+          )}
+          <button
+            onClick={handleLogout}
+            className={clsx(
+              "flex items-center gap-2 text-sm text-red-500 hover:bg-red-50 rounded-xl transition-all duration-200",
+              collapsed ? "mx-auto p-2.5" : "w-full px-3 py-2.5",
+              collapsed && "justify-center",
+            )}
+            title='Logout'>
+            <LogOut className='w-4 h-4' />
+            {!collapsed && <span>Logout</span>}
+          </button>
+        </div>
+      </>
     );
 
     return (

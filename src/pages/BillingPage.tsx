@@ -162,7 +162,7 @@ const BillingPage: React.FC = () => {
     if (!vehicleId) {
         return (
             <div className="flex flex-col items-center justify-center h-64 text-center animate-fade-in">
-                <div className="w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-lg bg-red-50 flex items-center justify-center mb-4">
                     <ShoppingBag className="w-8 h-8 text-red-400" />
                 </div>
                 <p className="text-red-600 font-medium">No Vehicle Assigned</p>
@@ -180,13 +180,13 @@ const BillingPage: React.FC = () => {
                 </h1>
 
                 {success && (
-                    <div className="bg-emerald-50 border border-emerald-100 text-emerald-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2 animate-slide-up">
+                    <div className="bg-emerald-50 border border-emerald-100 text-emerald-700 px-4 py-3 rounded-lg text-sm flex items-center gap-2 animate-slide-up">
                         <Check className="w-4 h-4" /> {success}
                     </div>
                 )}
 
                 {/* Vehicle Stock Card */}
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                     <div className="flex items-center justify-between mb-3">
                         <h2 className="text-sm font-semibold text-gray-700 flex items-center gap-1.5">
                             <Package className="w-4 h-4 text-indigo-500" />
@@ -206,7 +206,7 @@ const BillingPage: React.FC = () => {
                     ) : (
                         <div className="grid grid-cols-2 gap-2">
                             {vehicleStock.filter(s => s.quantity > 0).map((item, i) => (
-                                <div key={i} className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl px-3 py-2 border border-indigo-100/50">
+                                <div key={i} className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg px-3 py-2 border border-indigo-100/50">
                                     <p className="text-xs font-medium text-gray-700 truncate">{getProductName(item)}</p>
                                     <p className="text-lg font-bold text-indigo-600">
                                         {item.quantity}
@@ -219,13 +219,13 @@ const BillingPage: React.FC = () => {
                 </div>
 
                 {/* Shop Selection */}
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                     <label className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
                         <Store className="w-4 h-4 text-gray-400" />
                         Select Shop
                     </label>
                     <select
-                        className="w-full border border-gray-200 rounded-xl p-2.5 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+                        className="w-full border border-gray-200 rounded-lg p-2.5 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
                         value={selectedShopId}
                         onChange={(e) => { setSelectedShopId(e.target.value); setBillItems([]); }}
                     >
@@ -243,10 +243,10 @@ const BillingPage: React.FC = () => {
 
                 {/* Add Items */}
                 {selectedShopId && (
-                    <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 space-y-3">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 space-y-3">
                         <div className="flex gap-2">
                             <select
-                                className="flex-1 border border-gray-200 rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                className="flex-1 border border-gray-200 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 value={selectedProductId}
                                 onChange={(e) => setSelectedProductId(e.target.value)}
                             >
@@ -257,14 +257,14 @@ const BillingPage: React.FC = () => {
                             </select>
                             <input
                                 type="number"
-                                className="w-16 border border-gray-200 rounded-xl p-2.5 text-sm text-center focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                className="w-16 border border-gray-200 rounded-lg p-2.5 text-sm text-center focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 value={qty}
                                 min="1"
                                 onChange={(e) => setQty(Number(e.target.value))}
                             />
                             <button
                                 onClick={addItem}
-                                className="bg-indigo-600 text-white p-2.5 rounded-xl hover:bg-indigo-700 transition-colors shadow-sm"
+                                className="bg-indigo-600 text-white p-2.5 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
                             >
                                 <Plus className="w-5 h-5" />
                             </button>
@@ -273,7 +273,7 @@ const BillingPage: React.FC = () => {
                         {/* Items List */}
                         <div className="space-y-2 mt-2">
                             {billItems.map((item, idx) => (
-                                <div key={idx} className="flex justify-between items-center bg-gray-50 p-3 rounded-xl text-sm border border-gray-100 group">
+                                <div key={idx} className="flex justify-between items-center bg-gray-50 p-3 rounded-lg text-sm border border-gray-100 group">
                                     <div>
                                         <span className="font-medium text-gray-800">{item.productName}</span>
                                         <div className="text-xs text-gray-400 mt-0.5">{item.quantity} × ₹{item.price}</div>
@@ -292,7 +292,7 @@ const BillingPage: React.FC = () => {
 
                 {/* Totals & Payment */}
                 {billItems.length > 0 && (
-                    <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 space-y-4 animate-slide-up">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 space-y-4 animate-slide-up">
                         <div className="flex justify-between text-lg font-bold border-b border-gray-100 pb-3">
                             <span className="text-gray-700">Total</span>
                             <span className="gradient-text">₹{totalBillAmount.toLocaleString()}</span>
@@ -304,7 +304,7 @@ const BillingPage: React.FC = () => {
                                 <IndianRupee className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
                                 <input
                                     type="number"
-                                    className="w-full pl-9 border border-gray-200 rounded-xl p-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    className="w-full pl-9 border border-gray-200 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     value={paidAmount}
                                     onChange={(e) => setPaidAmount(Math.max(0, Number(e.target.value)))}
                                     placeholder="0"
@@ -315,7 +315,7 @@ const BillingPage: React.FC = () => {
 
                         <button
                             onClick={handleConfirmBill}
-                            className="btn-primary w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold py-3 rounded-xl hover:from-emerald-600 hover:to-emerald-700 shadow-lg shadow-emerald-200 transition-all duration-200 active:scale-[0.98]"
+                            className="btn-primary w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold py-3 rounded-lg hover:from-emerald-600 hover:to-emerald-700 shadow-lg shadow-emerald-200 transition-all duration-200 active:scale-[0.98]"
                         >
                             Confirm Bill & Pay
                         </button>
@@ -326,7 +326,7 @@ const BillingPage: React.FC = () => {
             {/* Confirmation Modal */}
             {showConfirm && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
-                    <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden animate-scale-in">
+                    <div className="bg-white rounded-lg shadow-2xl w-full max-w-sm overflow-hidden animate-scale-in">
                         {/* Header */}
                         <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 px-5 py-4 flex items-center justify-between">
                             <h3 className="text-white font-bold text-lg flex items-center gap-2">
@@ -340,7 +340,7 @@ const BillingPage: React.FC = () => {
 
                         {/* Body */}
                         <div className="p-5 space-y-4">
-                            <div className="bg-gray-50 rounded-xl p-3 space-y-1">
+                            <div className="bg-gray-50 rounded-lg p-3 space-y-1">
                                 <p className="text-xs text-gray-500 font-medium">Shop</p>
                                 <p className="font-semibold text-gray-800">{selectedShop?.name}</p>
                             </div>
@@ -377,14 +377,14 @@ const BillingPage: React.FC = () => {
                         <div className="px-5 pb-5 flex gap-3">
                             <button
                                 onClick={() => setShowConfirm(false)}
-                                className="flex-1 py-2.5 border border-gray-200 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
+                                className="flex-1 py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={handleSubmitBill}
                                 disabled={submitting}
-                                className="flex-1 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl text-sm font-bold hover:from-emerald-600 hover:to-emerald-700 transition-all disabled:opacity-50"
+                                className="flex-1 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg text-sm font-bold hover:from-emerald-600 hover:to-emerald-700 transition-all disabled:opacity-50"
                             >
                                 {submitting ? 'Submitting...' : 'Yes, Create Bill'}
                             </button>
