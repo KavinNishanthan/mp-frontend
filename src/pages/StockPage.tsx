@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import api from '../utils/api';
-import {
-  RefreshCw,
-  ArrowRightLeft,
-  Truck,
-  House,
-  Package,
-  Boxes,
-} from "lucide-react";
+import { RefreshCw, ArrowRightLeft, Truck, House, Boxes } from "lucide-react";
+
+// import {
+//   RefreshCw,
+//   ArrowRightLeft,
+//   Truck,
+//   House,
+//   Package,
+//   Boxes,
+// } from "lucide-react";
 
 interface StockItem {
     productId: {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../utils/api';
-import { BarChart3, IndianRupee, TrendingUp, AlertTriangle, Filter, Package, Store } from 'lucide-react';
+import { BarChart3, TrendingUp, AlertTriangle, Filter, Package, Store } from 'lucide-react';
+// import { BarChart3, IndianRupee, TrendingUp, AlertTriangle, Filter, Package, Store } from 'lucide-react';
 
 type DatePreset = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'allTime' | 'custom';
 type TabType = 'sales' | 'profit' | 'outstanding';
